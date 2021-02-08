@@ -18,28 +18,37 @@ public class ItemGenerator : MonoBehaviour
     //アイテムを出すx方向の範囲
     private float posRange = 3.4f;
     //Unitychanのいる場所の何m前方にアイテムを生成するかという距離
-    private int itemGenerationDistance = 50;
+    private int itemGenerationDistance = 60;
     //アイテムを生成する間隔
     private int itemGenerationInterval = 15;
     //Unitychan.の参照を入れる
     GameObject unitychan;
+    //GameObject cone;
+    //GameObject coin;
+    //GameObject car;
+
+
+    //アイテム消滅位置
+    //private float deadLine = -10;
 
 
     // Start is called before the first frame update
     void Start()
     {
         unitychan = GameObject.Find("unitychan");
-
+        //cone = GameObject.Find("conePrefab");
+       //coin = GameObject.Find("coinPrefab");
+        //car = GameObject.Find("carPrefab");
     }
 
 
     public void Generate()
     {
-       int i = nextItemGenerationPos;
-        
+       float i = unitychan.transform.position.z + itemGenerationDistance;
 
-                //どのアイテムを出すのかをランダムに設定
-                int num = Random.Range(1, 11);
+
+        //どのアイテムを出すのかをランダムに設定
+        int num = Random.Range(1, 11);
                 if (num <= 2)
                 {
 
@@ -50,7 +59,11 @@ public class ItemGenerator : MonoBehaviour
                         cone.transform.position = new Vector3(4 * j, cone.transform.position.y, i);
 
                     }
-
+                      //アイテムを破棄
+                      //if(conePrefab.transform.position.z > this.deadLine)
+                       //{
+                       //   Destroy(gameObject.transform.FindChild(cone).gameObject);
+                       //}
                 }
                 else
                 {
@@ -75,9 +88,16 @@ public class ItemGenerator : MonoBehaviour
                             car.transform.position = new Vector3(posRange * j, car.transform.position.y, i + offsetZ);
 
                         }
-
-
-
+                    
+                      //アイテムを破棄
+                      //if (coinPrefab.transform.position.z > this.deadLine)
+                      //{
+                       //   Destroy(coin);
+                      //}
+                      //else if (carPrefab.transform.position.z > this.deadLine)
+                      //{
+                      //    Destroy(car);
+                      //}
                     }
 
                 }
@@ -104,7 +124,7 @@ public class ItemGenerator : MonoBehaviour
             nextItemGenerationPos += itemGenerationInterval;
 
             Generate();
-
+            
         }
     }
 }

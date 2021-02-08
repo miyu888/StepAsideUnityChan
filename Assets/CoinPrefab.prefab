@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4730599985022672555}
   - component: {fileID: 5056643952476067522}
   - component: {fileID: 5056643952476067549}
-  - component: {fileID: 7352134948323551559}
+  - component: {fileID: 7108033705949081253}
   m_Layer: 0
   m_Name: CoinPrefab
   m_TagString: CoinTag
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4eb86ed3f904d80a28d494902db375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7352134948323551559
+--- !u!114 &7108033705949081253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
